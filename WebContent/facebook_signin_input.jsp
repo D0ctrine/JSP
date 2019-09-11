@@ -13,7 +13,7 @@
 	<table>
 		<%!Connection conn = null;
 	PreparedStatement pstmt = null;
-	String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+	String url = "jdbc:oracle:thin:@10.0.0.10:1521:orcl";
 	String uid = "system";
 	String pass = "1111";
 	String sql = "insert into fbmember values(?, ?, ?, ?, ?)";%>
@@ -32,7 +32,7 @@
 			String birthdate = "";
 			for (int i = 0; i < 3; i++) {
 				out.println(birthday[i] + "<br>");
-				birthdate += birthday[i];
+				birthdate += birthday[i] + " ";
 			}
 		%>
 		<%
@@ -45,8 +45,8 @@
 				//(3 단계) Statement 객체 생성하기
 				pstmt = conn.prepareStatement(sql);
 				//(4 단계) 바인딩 변수를 채운다.
-				pstmt.setString(1, name);
-				pstmt.setString(2, id);
+				pstmt.setString(1, id);
+				pstmt.setString(2, name);
 				pstmt.setString(3, password);
 				pstmt.setString(4, birthdate);
 				pstmt.setString(5, gender);

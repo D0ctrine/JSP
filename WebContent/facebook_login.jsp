@@ -105,17 +105,15 @@ h1 a {
 </head>
 <body>
 	<div class="title">
-		<a href="http://www.facebook.com"> <img src="./img/facebook1.JPG"
+		<a href="./facebook_login.jsp"> <img src="./img/facebook1.JPG"
 			width=185>
 		</a>
 		<h1>
 			<pre>이메일 또는 휴대폰                 비밀번호</pre>
 			<form action="./facebook_login_input.jsp" method="post">
-			<input type="text" size="20" name="id"> <input type="text"
-				size="20" name="pw">
-			<button type="submit">
-				로그인
-			</button>
+				<input type="text" size="20" name="id"> <input type="text"
+					size="20" name="pwd">
+				<button type="submit">로그인</button>
 			</form>
 		</h1>
 	</div>
@@ -129,7 +127,7 @@ h1 a {
 		</h3>
 		<h4>
 			<pre> 빠르고 쉽습니다.</pre>
-			<form action="facebook_signin_input.jsp" method="post">
+			<form action="./facebook_signin_input.jsp" method="post">
 				<table border="0" width=200 height=100>
 
 					<tr height=50>
@@ -215,9 +213,9 @@ h1 a {
 
 					</tr>
 					<tr height=50>
-						<td class="formEle"><input type="radio" name="gender"
-							checked><span>남</span> <input type="radio" name="gender"><span>여</span>
-						</td>
+						<td class="formEle"><input type="radio" value="M"
+							name="gender" checked><span>남</span> <input type="radio"
+							value="W" name="gender"><span>여</span></td>
 					</tr>
 					<tr height=50>
 

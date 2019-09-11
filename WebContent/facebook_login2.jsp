@@ -104,7 +104,13 @@
     <div class="title">
             <a href="http://www.facebook.com"> <img src="./img/facebook1.JPG"  width=185 >   </a>
             <h1>    <pre>이메일 또는 휴대폰                 비밀번호</pre>
-                    <input type="text" size="20" name="iid"> <input type="text" size="20" name="ipw"><button><a href="./facebook_login_input.jsp">로그인</a> </button>
+            <%---   123123123123  --%>
+                   <form action="./facebook_login_input.jsp" method="post">
+				<input type="text" size="20" name="id"> <input type="text"
+					size="20" name="pwd">
+				<button type="submit">로그인</button>
+			</form>
+			<%---    123123123123 --%>
             </h1>
     </div>
     <div class="center" >
