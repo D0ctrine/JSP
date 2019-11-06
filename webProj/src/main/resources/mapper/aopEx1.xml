@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<bean id="adviceLog" class="com.test.aop.AdviceLog"/>
+	
+	<aop:config>
+		<aop:aspect id="prof" ref="adviceLog">
+			<aop:pointcut id="pcMethod" expression="execution(* com.test.aop.Student.getInfo())"/> 
+			<aop:pointcut id="pcMethod2" expression="within(com.test.aop.Staff)"/>
+			<aop:around pointcut-ref ="pcMethod" method="profi"/>
+			<aop:before pointcut-ref ="pcMethod2" method="be"/>
+		</aop:aspect>
+	</aop:config>
+		
+	<bean id="student" class="com.test.aop.Student">
+		<property name="name" value="강길동" />
+		<property name="hakbun" value="20160103" />
+		<property name="age" value="16" />
+		<property name="grade" value="2학년"/>
+	</bean>
+	
+	<bean id="staff" class="com.test.aop.Staff">
+		<property name="name" value="김말똥" />
+		<property name="age" value="26" />
+		<property name="dept" value="영업부" />
+	</bean>
+	
+	<!-- Advice 종류]
+			<aop:pointcut id="pcMethod" expression="within(com.test.aop.Student)"/> 
+			
+			  <aop:before>  핵심 기능이 실행되기 전에
+			  <aop:after-returning>  : 정상적으로 핵심기능 실행 후에 advice
+			  <aop:after-throwing> : 핵심기능 실행 중에 exception 발생시 advice
+			  <aop:affer> :핵심기능 실행 전후에 실행(exception이 발생하더라도)
+			   <aop:arround>  : 핵심기능 실행 전후에 exception. advice-->
+</beans>
